@@ -4,6 +4,7 @@ import sentenceBoundaryDetection from 'sbd'
 import NaturalLanguageUnderstandingV1
 from 'watson-developer-cloud/natural-language-understanding/v1'
 
+import state from './state'
 import { Content } from "../Content"
 import watsonCredentials from '../credentials/watson-nlu.json'
 import { apiKey as algorithmiaApiKey } from '../credentials/algorithmia.json'
@@ -15,11 +16,13 @@ const naturalLanguageUnderstanding = new NaturalLanguageUnderstandingV1({
   iam_apikey: watsonCredentials.apikey,
 })
 
-async function robot(content: Content) {
+async function robot() {
+  const content = state.load()
   await fetchContentFromWikipedia(content)
   sanitizeContent(content)
   breakContentIntoSentences(content)
   await fetchKeyWordsOfAllSentences(content)
+  state.save(content)
 }
 
 async function fetchContentFromWikipedia(content: Content) {
