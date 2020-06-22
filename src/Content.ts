@@ -6,6 +6,7 @@ export interface Content {
   sourceContentSanitized?: string
   sentences?: Sentense[]
   maximunSentenses: number
+  downloadedImages?: string[]
 }
 
 interface Sentense {
