@@ -73,5 +73,5 @@ Adobe After Effects Auto-Save
 template.aep Logs
 .DS_Store
 
-# credntials
+# credentials
 */credentials/*.json
