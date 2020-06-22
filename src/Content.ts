@@ -12,4 +12,5 @@ interface Sentense {
   text: string
   keywords: string[]
   images: string[]
+  googleSearchQuery?: string
 }
