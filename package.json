@@ -6,7 +6,7 @@
   "author": "Yuri Almeida <yurialves2@gmail.com>",
   "repository": "git@github.com:javascripto/youtube-video-creator.git",
   "scripts": {
-    "start": "ts-node src/index.ts"
+    "start": "ts-node-dev --transpile-only --ignore-watch node_modules src/index.ts"
   },
   "dependencies": {
     "algorithmia": "^0.3.10",
